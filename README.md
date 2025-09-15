@@ -37,9 +37,15 @@ Various patches to fix multiple issues with the Linux native build of Left 4 Dea
 > You can use [VTF Spray Converter](https://rafradek.github.io/Mishcatt/) to make a spray to use in-game.
 
 1. Create a VTF file to use as your spray (use the tool above)
-2. WIP
+2. Copy the .vtf file to `Left 4 Dead 2/left4dead2/`
+3. Open L4D2, Navigate to Options > Multiplayer
+4. Click Import Spray, then type the exact name of your file (with the file extension) into the file name box and press enter. Example: `cat.vtf` > Enter
+5. You should get an error, "Unable to write output spray file. It's possible the current user doesn't have permission."
+6. Close L4D2 and navigate to `Left 4 Dead 2/left4dead2/materials/vgui/logos/custom`, create the folders if they don't exist.
+7. Copy your .vtf file into the folder, where a .vmt of the same name exists. Leave the vtf in your main `left4dead2` there.
+8. Re-open L4D2 and do steps 3-4 again, this time you won't get an error and the spray will import!
 
 # Credits
-RF (Recycle_Bin) - [Fire Bullet Fix](https://www.gamemaps.com/details/30880) on GameMaps
-[gabusan](https://steamcommunity.com/id/proprocrastinator) - Background shuffle command
-[Rusty Pancakes](https://steamcommunity.com/id/RustyPancakes) - Spray import fix
+- [RF (Recycle_Bin)](https://steamcommunity.com/profiles/76561198039186809) - [Fire Bullet Fix](https://www.gamemaps.com/details/30880) on GameMaps
+- [gabusan](https://steamcommunity.com/id/proprocrastinator) - Background shuffle command
+- [Rusty Pancakes](https://steamcommunity.com/id/RustyPancakes) - Spray import fix
