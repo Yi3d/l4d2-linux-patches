@@ -26,7 +26,7 @@ Various patches to fix multiple issues with the Linux native build of Left 4 Dea
 6. Make sure `lib32-harfbuzz` is installed on your system. Look up `harfbuzz 32 bit DISTRO NAME` to find the relevant package.
 7. Go back to steam, right click Left 4 Dead 2 in the game list: Properties > Launch Options. Add the following: `+map credits +mp_gamemode gunbrain -vulkan -novid -background $(shuf -i 1-5 -n 1)`
 8. Launch the game and confirm you get a loading screen with `Joining a Disabling Tracers... game.`
-9. Navigate to Options > Keyboard/Mouse > Raw Mouse Input > Disabled
+9. Navigate to Options > Keyboard/Mouse > Raw Mouse Input > Disabled. Also turn off subtitles as it can rarely crash on certain custom campaigns.
 10. If so, success! Make sure to set `Options > Audio > Speaker Configuration > Headphones` each time you launch the game.
 
 # Additional Guides
