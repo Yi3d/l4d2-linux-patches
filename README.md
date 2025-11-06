@@ -43,7 +43,7 @@ Various patches to fix multiple issues with the Linux native build of Left 4 Dea
 5. You should get an error, "Unable to write output spray file. It's possible the current user doesn't have permission."
 6. Close L4D2 and navigate to `Left 4 Dead 2/left4dead2/materials/vgui/logos/custom`, create the folders if they don't exist.
 7. Copy your .vtf file into the folder, where a .vmt of the same name exists. Leave the vtf in your main `left4dead2` there.
-8. Re-open L4D2 and do steps 3-4 again, this time you won't get an error and the spray will import!
+8. Re-open L4D2 and instead of importing the spray, click the dropdown and select custom logo. Type the exact name of the vtf file (e.g. `dog.vtf`) into the text box and press enter.
 
 # Credits
 - [RF (Recycle_Bin)](https://steamcommunity.com/profiles/76561198039186809) - [Fire Bullet Fix](https://www.gamemaps.com/details/30880) on GameMaps
