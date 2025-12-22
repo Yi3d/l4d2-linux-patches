@@ -36,7 +36,9 @@ Various patches to fix multiple issues with the Linux native build of Left 4 Dea
 If you have a different package manager (eg. Nix), just look it up or build harfbuzz with 32-bit support.
 
 > [!WARNING]
-> Ideally you should do this on a fresh installation of Left 4 Dead 2 (to avoid potential issues), but you can do this on a modified install.
+> 1: Ideally you should do this on a fresh installation of Left 4 Dead 2 (to avoid potential issues), but you can do this on a modified install.
+>
+> 2: If `STEAM_COMPAT_RUNTIME_SDL2=1` is causes the game to not load, try `STEAM_COMPAT_RUNTIME_SDL2=sdl2-compat`. Otherwise try removing it.
 
 > [!NOTE]
 > Skip step 5 if you don't want to fix the HTML within Left 4 Dead 2. It can be obnoxious on malicious servers (Lewd 4 Dead).
