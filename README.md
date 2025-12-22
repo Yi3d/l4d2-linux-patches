@@ -1,4 +1,8 @@
 # l4d2-linux-patches
+
+> [!NOTE]
+> Steam Guide: https://steamcommunity.com/sharedfiles/filedetails/?id=3269932221
+
 Various patches to fix multiple issues with the Linux native build of Left 4 Dead 2. List of patched issues includes:
 
  - Fire bullets crashing the game by shooting the Tank
@@ -8,26 +12,53 @@ Various patches to fix multiple issues with the Linux native build of Left 4 Dea
  - Main Menu Background not changing at all
  - Ideal launch options (Vulkan)
  - Crashing in some campaigns
- - Some other random console error
+ - Misc. Console errors
+ - Higher audio latency
 
 # Install
+
+### Optional Requirements
+
+- The lib32-harfbuzz package on your distro, see the following common packages:
+
+- Arch-based:
+
+`sudo pacman -S lib32-harfbuzz harfbuzz`
+
+- Debian/Ubuntu-based (Untested)
+
+`sudo apt install harfbuzz:i386`
+
+- Fedora-based (Untested)
+
+`sudo dnf install harfbuzz`
+
+If you have a different package manager (eg. Nix), just look it up or build harfbuzz with 32-bit support.
 
 > [!WARNING]
 > Ideally you should do this on a fresh installation of Left 4 Dead 2 (to avoid potential issues), but you can do this on a modified install.
 
 > [!NOTE]
-> Skip step 6 and 7 if you don't want to fix the HTML within Left 4 Dead 2. It can be obnoxious on malicious servers (Lewd 4 Dead).
+> Skip step 5 if you don't want to fix the HTML within Left 4 Dead 2. It can be obnoxious on malicious servers (Lewd 4 Dead).
 
 1. Click the code button, then click download ZIP.
 2. Extract the zip with any program.
 3. Go to steam, right click Left 4 Dead 2 in the game list: Manage > Browse Local Files.
 4. Copy the contents within the `l4d2-linux-patches-main` folder (excluding the README.md and LICENSE) to the main `Left 4 Dead 2` folder.
-5. Navigate to `Left 4 Dead 2/bin` and delete `libharfbuzz.so.0`.
-6. Make sure `lib32-harfbuzz` is installed on your system. Look up `harfbuzz 32 bit DISTRO NAME` to find the relevant package.
-7. Go back to steam, right click Left 4 Dead 2 in the game list: Properties > Launch Options. Add the following: `+map credits +mp_gamemode gunbrain -vulkan -novid -background $(shuf -i 1-5 -n 1)`
-8. Launch the game and confirm you get a loading screen with `Joining a Disabling Tracers... game.`
-9. Navigate to Options > Keyboard/Mouse > Raw Mouse Input > Disabled. Also turn off subtitles as it can rarely crash on certain custom campaigns.
-10. If so, success! Make sure to set `Options > Audio > Speaker Configuration > Headphones` each time you launch the game.
+5. [*Optional*] Navigate to `Left 4 Dead 2/bin` and delete `libharfbuzz.so.0`. If you do this, you should have harfbuzz installed on your system for the CEF to be functional.
+6. Go back to steam, right click Left 4 Dead 2 in the game list: Properties > Launch Options. Add the following depending on if you are using x11 or Wayland:
+
+- Wayland:
+
+`PULSE_LATENCY_MSEC=60 SDL_VIDEODRIVER=wayland STEAM_COMPAT_RUNTIME_SDL2=1 %command% +map credits +mp_gamemode gunbrain +snd_mixahead 0.056 -vulkan -novid -background $(shuf -i 1-5 -n 1)`
+
+- X11:
+
+`PULSE_LATENCY_MSEC=60 STEAM_COMPAT_RUNTIME_SDL2=1 %command% +map credits +mp_gamemode gunbrain +snd_mixahead 0.056 -vulkan -novid -background $(shuf -i 1-5 -n 1)`
+
+7. Launch the game and confirm you get a loading screen with `Joining a Disabling Tracers... game.`
+8. Navigate to Options > Keyboard/Mouse > Raw Mouse Input > Disabled. Also turn off subtitles as it can rarely crash on certain custom campaigns.
+9. If so, success! Make sure to set `Options > Audio > Speaker Configuration > Headphones` each time you launch the game.
 
 # Additional Guides
 
@@ -49,3 +80,6 @@ Various patches to fix multiple issues with the Linux native build of Left 4 Dea
 - [RF (Recycle_Bin)](https://steamcommunity.com/profiles/76561198039186809) - [Fire Bullet Fix](https://www.gamemaps.com/details/30880) on GameMaps
 - [gabusan](https://steamcommunity.com/id/proprocrastinator) - Background shuffle command
 - [Rusty Pancakes](https://steamcommunity.com/id/RustyPancakes) - Spray import fix
+- [Mono](https://steamcommunity.com/id/mono2718) - Depot Method for libmiles.so (it was in this guide once, but this bug was patched long ago)
+- [Adrian Tepez](https://steamcommunity.com/id/adriantepez) - Wayland fixes for certain users
+- [SiberianLeon](https://steamcommunity.com/id/CallMeLeonidas) - Audio latency fix
