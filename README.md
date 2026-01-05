@@ -62,9 +62,15 @@ If you have a different package manager (eg. Nix), just look it up or build harf
 8. Navigate to Options > Keyboard/Mouse > Raw Mouse Input > Disabled. Also turn off subtitles as it can rarely crash on certain custom campaigns.
 9. If so, success! Make sure to set `Options > Audio > Speaker Configuration > Headphones` each time you launch the game.
 
-# Additional Guides
+# Q&A
 
-### Importing your spray
+### I have a Nvidia Graphics Card and I'm crashing when I launch the game!
+
+1. Open steam, right click Left 4 Dead 2 > Manage > Browser Local Files
+2. Open hl2.sh with a text editor and find the line: `export __GL_THREADED_OPTIMIZATIONS=1`
+3. Change 1 to 0 and save the file
+
+### I can't import my spray, it gives me a error!
 
 > [!NOTE]
 > You can use [VTF Spray Converter](https://rafradek.github.io/Mishcatt/) to make a spray to use in-game.
@@ -83,5 +89,5 @@ If you have a different package manager (eg. Nix), just look it up or build harf
 - [gabusan](https://steamcommunity.com/id/proprocrastinator) - Background shuffle command
 - [Rusty Pancakes](https://steamcommunity.com/id/RustyPancakes) - Spray import fix
 - [Mono](https://steamcommunity.com/id/mono2718) - Depot Method for libmiles.so (it was in this guide once, but this bug was patched long ago)
-- [Adrian Tepez](https://steamcommunity.com/id/adriantepez) - Wayland fixes for certain users
+- [Adrian Tepez](https://steamcommunity.com/id/adriantepez) - Wayland fixes, Nvidia fixes
 - [SiberianLeon](https://steamcommunity.com/id/CallMeLeonidas) - Audio latency fix
