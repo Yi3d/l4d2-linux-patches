@@ -3,7 +3,7 @@
 > [!NOTE]
 > Steam Guide: https://steamcommunity.com/sharedfiles/filedetails/?id=3269932221
 
-Various patches to fix multiple issues with the Linux native build of Left 4 Dead 2. List of patched issues includes:
+Various patches and instructions to fix multiple issues with the Linux native build of Left 4 Dead 2. List of patched issues includes:
 
  - Fire bullets crashing the game by shooting the Tank (requires launch options below to enable)
  - Missing fonts
@@ -38,9 +38,11 @@ If you have a different package manager (eg. Nix), just look it up or build harf
 ### Installation
 
 > [!NOTE]
+> You should be using the native build, not Proton.
+>
 > Skip step 5 if you don't want to fix the HTML within Left 4 Dead 2. It can be obnoxious on malicious servers (Lewd 4 Dead).
 >
-> If `STEAM_COMPAT_RUNTIME_SDL2=1` is causes the game to not load, try removing it.
+> If `STEAM_COMPAT_RUNTIME_SDL2=1` is causing the game to not load, remove it.
 
 1. Click the code button, then click download ZIP.
 2. Extract the zip with any program.
