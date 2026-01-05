@@ -17,9 +17,13 @@ Various patches and instructions to fix multiple issues with the Linux native bu
 
 # Install
 
+### Requirements
+
+- Read fully, I see a lot of people on ProtonDB miss the launch options for the fire bullet fix. :(
+
 ### Optional Requirements
 
-- The lib32-harfbuzz package on your distro, see the following common packages:
+The lib32-harfbuzz package on your distro, see the following common packages:
 
 - Arch-based:
 
