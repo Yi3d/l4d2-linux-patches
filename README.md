@@ -5,15 +5,15 @@
 
 Various patches to fix multiple issues with the Linux native build of Left 4 Dead 2. List of patched issues includes:
 
- - Fire bullets crashing the game by shooting the Tank
+ - Fire bullets crashing the game by shooting the Tank (requires launch options below to enable)
  - Missing fonts
  - Broken CEF
  - Mouse not locking in the center
- - Main Menu Background not changing at all
- - Ideal launch options (Vulkan)
- - Crashing in some campaigns
- - Misc. Console errors
- - Higher audio latency
+ - Main Menu background not changing at all
+ - Enable Vulkan
+ - Wayland fixes
+ - Audio latency fixes
+ - Nvidia crashing fix
 
 # Install
 
@@ -35,13 +35,12 @@ Various patches to fix multiple issues with the Linux native build of Left 4 Dea
 
 If you have a different package manager (eg. Nix), just look it up or build harfbuzz with 32-bit support.
 
-> [!WARNING]
-> 1: Ideally you should do this on a fresh installation of Left 4 Dead 2 (to avoid potential issues), but you can do this on a modified install.
->
-> 2: If `STEAM_COMPAT_RUNTIME_SDL2=1` is causes the game to not load, try `STEAM_COMPAT_RUNTIME_SDL2=sdl2-compat`. Otherwise try removing it.
+### Installation
 
 > [!NOTE]
 > Skip step 5 if you don't want to fix the HTML within Left 4 Dead 2. It can be obnoxious on malicious servers (Lewd 4 Dead).
+>
+> If `STEAM_COMPAT_RUNTIME_SDL2=1` is causes the game to not load, try removing it.
 
 1. Click the code button, then click download ZIP.
 2. Extract the zip with any program.
