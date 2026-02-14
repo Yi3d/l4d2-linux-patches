@@ -6,8 +6,8 @@
 Various patches and instructions to fix multiple issues with the Linux native build of Left 4 Dead 2. List of patched issues includes:
 
  - Fire bullets crashing the game by shooting the Tank (requires launch options below to enable)
- - Missing fonts
- - Broken CEF
+ - Missing fonts required for checkboxes, etc.
+ - Broken Chromium Embedded Framework
  - Mouse not locking in the center
  - Main Menu background not changing at all
  - Enable Vulkan
@@ -19,7 +19,7 @@ Various patches and instructions to fix multiple issues with the Linux native bu
 
 ### Requirements
 
-- Read fully, I see a lot of people on ProtonDB miss the launch options for the fire bullet fix. :(
+- Read fully, I see a lot of people on ProtonDB miss the launch options for the fire bullet fix.
 
 ### Optional Requirements
 
@@ -33,7 +33,7 @@ The lib32-harfbuzz package on your distro, see the following common packages:
 
 `sudo apt install harfbuzz:i386`
 
-- Fedora-based (Untested)
+- Fedora-based
 
 `sudo dnf install harfbuzz`
 
@@ -43,26 +43,13 @@ If you have a different package manager (eg. Nix), just look it up or build harf
 
 > [!NOTE]
 > You should be using the native build, not Proton.
->
-> Skip step 5 if you don't want to fix the HTML within Left 4 Dead 2. It can be obnoxious on malicious servers (Lewd 4 Dead).
->
-> If `STEAM_COMPAT_RUNTIME_SDL2=1` is causing the game to not load, remove it.
 
 1. Click the code button, then click download ZIP.
 2. Extract the zip with any program.
 3. Go to steam, right click Left 4 Dead 2 in the game list: Manage > Browse Local Files.
 4. Copy the contents within the `l4d2-linux-patches-main` folder (excluding the README.md and LICENSE) to the main `Left 4 Dead 2` folder.
 5. [*Optional*] Navigate to `Left 4 Dead 2/bin` and delete `libharfbuzz.so.0`. If you do this, you should have harfbuzz installed on your system for the CEF to be functional.
-6. Go back to steam, right click Left 4 Dead 2 in the game list: Properties > Launch Options. Add the following depending on if you are using x11 or Wayland:
-
-- Wayland:
-
-`PULSE_LATENCY_MSEC=60 SDL_VIDEODRIVER=wayland STEAM_COMPAT_RUNTIME_SDL2=1 %command% +map credits +mp_gamemode gunbrain +snd_mixahead 0.056 -vulkan -novid -background $(shuf -i 1-5 -n 1)`
-
-- X11:
-
-`PULSE_LATENCY_MSEC=60 STEAM_COMPAT_RUNTIME_SDL2=1 %command% +map credits +mp_gamemode gunbrain +snd_mixahead 0.056 -vulkan -novid -background $(shuf -i 1-5 -n 1)`
-
+6. Go back to steam, right click Left 4 Dead 2 in the game list: Properties > Launch Options. Add the following: `PULSE_LATENCY_MSEC=60%command% +map credits +mp_gamemode gunbrain +snd_mixahead 0.056 -vulkan -novid -background $(shuf -i 1-5 -n 1)`
 7. Launch the game and confirm you get a loading screen with `Joining a Disabling Tracers... game.`
 8. Navigate to Options > Keyboard/Mouse > Raw Mouse Input > Disabled. Also turn off subtitles as it can rarely crash on certain custom campaigns.
 9. If so, success! Make sure to set `Options > Audio > Speaker Configuration > Headphones` each time you launch the game.
@@ -74,6 +61,12 @@ If you have a different package manager (eg. Nix), just look it up or build harf
 1. Open steam, right click Left 4 Dead 2 > Manage > Browser Local Files
 2. Open hl2.sh with a text editor and find the line: `export __GL_THREADED_OPTIMIZATIONS=1`
 3. Change 1 to 0 and save the file
+
+### I'm on Wayland and the game doesn't launch/My mouse still refuses to lock into the center/Clicking with the mouse lags the game
+
+Try adding the following to your launch options: `SDL_VIDEODRIVER=wayland STEAM_COMPAT_RUNTIME_SDL2=1`
+
+If you're mouse still refuses to lock in the center or stop lagging the game, try using gamescope: `gamescope -f -W 1920 -H 1080 --force-grab-cursor -- [Rest of the launch options]`
 
 ### I can't import my spray, it gives me a error!
 
@@ -95,4 +88,4 @@ If you have a different package manager (eg. Nix), just look it up or build harf
 - [Rusty Pancakes](https://steamcommunity.com/id/RustyPancakes) - Spray import fix
 - [Mono](https://steamcommunity.com/id/mono2718) - Depot Method for libmiles.so (it was in this guide once, but this bug was patched long ago)
 - [Adrian Tepez](https://steamcommunity.com/id/adriantepez) - Wayland fixes, Nvidia fixes
-- [SiberianLeon](https://steamcommunity.com/id/CallMeLeonidas) - Audio latency fix
+- [SiberianLeon](https://steamcommunity.com/id/CallMeLeonidas) - Audio latency fixes, Wayland fixes
