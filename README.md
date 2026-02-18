@@ -49,7 +49,7 @@ If you have a different package manager (eg. Nix), just look it up or build harf
 3. Go to steam, right click Left 4 Dead 2 in the game list: Manage > Browse Local Files.
 4. Copy the contents within the `l4d2-linux-patches-main` folder (excluding the README.md and LICENSE) to the main `Left 4 Dead 2` folder.
 5. [*Optional*] Navigate to `Left 4 Dead 2/bin` and delete `libharfbuzz.so.0`. If you do this, you should have harfbuzz installed on your system for the CEF to be functional.
-6. Go back to steam, right click Left 4 Dead 2 in the game list: Properties > Launch Options. Add the following: `PULSE_LATENCY_MSEC=60%command% +map credits +mp_gamemode gunbrain +snd_mixahead 0.056 -vulkan -novid -background $(shuf -i 1-5 -n 1)`
+6. Go back to steam, right click Left 4 Dead 2 in the game list: Properties > Launch Options. Add the following: `PULSE_LATENCY_MSEC=60 %command% +map credits +mp_gamemode gunbrain +snd_mixahead 0.056 -vulkan -novid -background $(shuf -i 1-5 -n 1)`
 7. Launch the game and confirm you get a loading screen with `Joining a Disabling Tracers... game.`
 8. Navigate to Options > Keyboard/Mouse > Raw Mouse Input > Disabled. Also turn off subtitles as it can rarely crash on certain custom campaigns.
 9. If so, success! Make sure to set `Options > Audio > Speaker Configuration > Headphones` each time you launch the game.
