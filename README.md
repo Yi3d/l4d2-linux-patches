@@ -54,7 +54,7 @@ If you have a different package manager (eg. Nix), just look it up or build harf
 
 Try adding the following to your launch options: `SDL_VIDEODRIVER=wayland STEAM_COMPAT_RUNTIME_SDL2=1`
 
-If you're mouse still refuses to lock in the center or stop lagging the game, try using gamescope: `PULSE_LATENCY_MSEC=60 gamescope -f -S stretch -W 1920 -H 1080 --force-grab-cursor -- [Rest of the launch options]`
+If you're mouse still refuses to lock in the center or stop lagging the game, try using gamescope: `LD_PRELOAD="" PULSE_LATENCY_MSEC=60 gamescope -f -S stretch -W 1920 -H 1080 --force-grab-cursor -- [Rest of the launch options]`
 
 ### I can't import my spray, it gives me a error!
 
