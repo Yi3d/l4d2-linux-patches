@@ -22,7 +22,7 @@ Various patches and instructions to fix multiple issues with the Linux native bu
 - Ability to read
 - The lib32-harfbuzz package on your distro, see the following common packages:
   - Arch-based: `sudo pacman -S lib32-harfbuzz harfbuzz`
-  - Debian/Ubuntu-based (Untested): `sudo apt install harfbuzz:i386`
+  - Debian/Ubuntu-based: `sudo apt install libharfbuzz-bin:i386`
   - Fedora-based: `sudo dnf install harfbuzz`
 
 If you have a different package manager (eg. Nix), just look it up or build harfbuzz with 32-bit support.
